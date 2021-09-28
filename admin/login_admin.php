@@ -66,16 +66,16 @@
         }
     </style>
 </head>
-<body class="text-center" style="background: url(img/ss.png) center">
+<body class="text-center" style="background: url(img/depositphotos_395610728-stock-photo-ripe-apple-on-books-and.jpg) center;">
     <div class="container-fluid">
-        <form class="form-signin" method="post" action="verifikasi.php" style="background-color:#8B4513">
-            <h1 class="h3 mb-3 font-weight-normal" style="color:#deeaee">Please sign in</h1>
+        <form class="form-signin" method="post" action="verifikasi.php">
+            <h1 class="h3 mb-3 font-weight-normal" style="color:#deeaee;opacity: 1;">Please sign in</h1>
             <label for="inputEmail" class="sr-only">Email address</label>
-            <input type="text" id="inputEmail" name="nama" class="form-control" placeholder="Username" required autofocus>
+            <input type="text" id="inputEmail" name="nama" class="form-control" style="opacity: 1;" placeholder="Username" required autofocus>
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+            <input type="password" id="inputPassword" name="password" class="form-control" style="opacity: 1;" placeholder="Password" required>
 
-            <button class="btn btn-lg btn-dark btn-block" type="submit">Sign in</button>
+            <button class="btn btn-lg btn-dark btn-block" style="opacity: 1;" type="submit">Sign in</button>
             <p class="mt-5 mb-3 text-muted"></p>
         </form>
     </div>
