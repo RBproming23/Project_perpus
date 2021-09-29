@@ -2,7 +2,7 @@
   include('inc/header.php');
   include('inc/sidebar.php');?>
 
-  <section class="main" style="background-color: #8B4513;">
+  <section class="main"">
     <h1>Buku</h1>
     <hr>
     <?php 
@@ -10,7 +10,7 @@
           echo "
             <h3>Tambah Data</h3>
             <form name='tambah' action='?act=proses_tambah' method='post' enctype='multipart/form-data'>
-            <p><input type='text' name='nama_buku' placeholder='nama buku' required></p>
+            <p><input type='text' name='buku' placeholder='nama buku' required></p>
             <p><textarea name='keterangan' cols='50' rows='10' placeholder='keterangan' required='true'></textarea></p>
             <p>
               Kategori: <select name='id_kategori'>
@@ -40,7 +40,7 @@
           }else{
           if($_FILES['gambar']['error'] !=0){
           $tambah = mysqli_query($connect, "INSERT into buku (nama_buku, keterangan, id_kategori, stock)
-              values ('$_POST[nama_buku]', '$_POST[keterangan]', '$_POST[id_kategori]', '$_POST[stok]')");
+              values ('$_POST[buku]', '$_POST[keterangan]', '$_POST[id_kategori]', '$_POST[stok]')");
           }else{
             $tmp_file = $_FILES['gambar']['tmp_name'];
             $filename = $_FILES['gambar']['name'];
@@ -52,7 +52,7 @@
               $gambar = $filename;
             }
             $tambah = mysqli_query($connect, "INSERT into buku (nama_buku, keterangan, id_kategori, gambar, stock)
-              values ('$_POST[nama_buku]', '$_POST[keterangan]', '$_POST[id_kategori]', '$gambar', '$_POST[stok]')");
+              values ('$_POST[buku]', '$_POST[keterangan]', '$_POST[id_kategori]', '$gambar', '$_POST[stok]')");
           }
           if($tambah){
             echo "Data berhasil ditambahkan";
@@ -128,7 +128,7 @@
         }
       ?>
     <a href="?act=tambah">
-      <button type="button" class="btn btn-dark">Tambah</button>
+      <button type="button" class="btn btn-success">Tambah</button>
     </a>
 
   <table class="tabel" style="background-color: #FFFFFF;">
