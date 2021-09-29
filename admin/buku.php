@@ -11,14 +11,14 @@
             <h3>Tambah Data</h3>
             <form name='tambah' action='?act=proses_tambah' method='post' enctype='multipart/form-data'>
             <p><input type='text' name='nama_buku' placeholder='nama buku' required></p>
-            <p><textarea name='Keterangan' cols='50' rows='10' placeholder='keterangan' required='true'></textarea></p>
+            <p><textarea name='keterangan' cols='50' rows='10' placeholder='keterangan' required='true'></textarea></p>
             <p>
-              Kategori: <select name='id_Kategori'>
+              Kategori: <select name='id_kategori'>
           
           ";
           $kategori = mysqli_query($connect, "SELECT * FROM kategori");
-          while($opsi=mysqli_fetch_array($wilayah)){
-            echo "<option value='$opsi[id_kategori]'>$opsi[kategori]</option>";
+          while($opsi=mysqli_fetch_array($kategori)){
+            echo "<option class='form-control' value='$opsi[id_kategori]'>$opsi[nama_kategori]</option>";
           }
           echo "
             </select>
@@ -39,8 +39,8 @@
           echo "Data gagal ditambahkan";
           }else{
           if($_FILES['gambar']['error'] !=0){
-          $tambah = mysqli_query($connect, "INSERT into buku (nama_buku, Keterangan, id_kategori, stock)
-              values ('$_POST[nama_buku]','$_POST[Keterangan]', '$_POST[id_kategori]', '$_POST[stok]')");
+          $tambah = mysqli_query($connect, "INSERT into buku (nama_buku, keterangan, id_kategori, stock)
+              values ('$_POST[nama_buku]', '$_POST[keterangan]', '$_POST[id_kategori]', '$_POST[stok]')");
           }else{
             $tmp_file = $_FILES['gambar']['tmp_name'];
             $filename = $_FILES['gambar']['name'];
@@ -51,8 +51,8 @@
             if(move_uploaded_file($tmp_file, $destination)){
               $gambar = $filename;
             }
-            $tambah = mysqli_query($connect, "INSERT into buku (nama_bku, Keterangan, id_kategori, gambar)
-              values ('$_POST[nama_buku]','$_POST[Keterangan]', '$_POST[id_kategori]', '$gambar', '$_POST[stok]')");
+            $tambah = mysqli_query($connect, "INSERT into buku (nama_buku, keterangan, id_kategori, gambar, stock)
+              values ('$_POST[nama_buku]', '$_POST[keterangan]', '$_POST[id_kategori]', '$gambar', '$_POST[stok]')");
           }
           if($tambah){
             echo "Data berhasil ditambahkan";
@@ -67,14 +67,14 @@
             <h3>Edit Data</h3>
             <form name='edit' action='?act=proses_edit' method='post' enctype='multipart/form-data'>
             <input type = 'hidden' name='id' value='$isi[id_buku]'>
-            <p><input type='text' name='nama_alat' value='$isi[nama_buku]' placeholder='Nama Alat'></P>
+            <p><input type='text' name='nama_buku' value='$isi[nama_buku]' placeholder='Nama buku'></p>
             <p><textarea name='Keterangan' cols='50' rows='10' placeholder='keterangan'>$isi[keterangan]</textarea></p>
             <p>
-              Kategori: <select name='id_wilayah'>
+              Kategori: <select name='id_kategori'>
 
           ";
-            $wilayah = mysqli_query($connect, "SELECT * FROM wilayah");
-            while($opsi = mysqli_fetch_array($wilayah)){
+            $kategori = mysqli_query($connect, "SELECT * FROM kategori");
+            while($opsi = mysqli_fetch_array($kategori)){
               echo "<option value='$opsi[id_kategori]'>
             $opsi[kategori]</option>";
         }
@@ -96,7 +96,7 @@
         ";
       }elseif (isset($_GET['act'])AND $_GET['act']=='proses_edit'){
           if($_FILES['gambar']['error'] !=0){
-            $edit = mysqli_query($connect, "UPDATE buku SET nama_buku = '$_POST[nama_buku]', keterangan = '$_POST[Keterangan]', id_wilayah = '$_POST[id_kategori]', stock = '$_POST[stok]' where id_buku = '$_POST[id]'");
+            $edit = mysqli_query($connect, "UPDATE buku SET nama_buku = '$_POST[nama_buku]', keterangan = '$_POST[Keterangan]', id_kategori = '$_POST[id_kategori]', stock = '$_POST[stok]' where id_buku = '$_POST[id]'");
           }else{
             $tmp_file = $_FILES['gambar']['tmp_name'];
             $filename = $_FILES['gambar']['name'];
@@ -108,7 +108,7 @@
             if(move_uploaded_file($tmp_file, $destination)){
               $gambar = $filename;
             }
-            $edit = mysqli_query($connect, "UPDATE buku set nama_buku = '$_POST[nama_buku]', keterangan = '$_POST[keterangan]', id_wilayah= '$_POST[id_kategori]', gambar = '$gambar', stock = '$_POST[stok]'  where id_buku = '$_POST[id]'");
+            $edit = mysqli_query($connect, "UPDATE buku set nama_buku = '$_POST[nama_buku]', keterangan = '$_POST[keterangan]', id_kategori= '$_POST[id_kategori]', gambar = '$gambar', stock = '$_POST[stok]'  where id_buku = '$_POST[id]'");
           }
           if($edit){
             echo "Data Berhasil Diedit";
