@@ -2,7 +2,7 @@
 	include('inc/header.php');
 	include('inc/sidebar.php');?>
 
-	<section class="main" style="background-color: #8B4513;">
+	<section class="main">
 		<h1>Kategori Buku</h1>
 		<hr>
 		<?php 
