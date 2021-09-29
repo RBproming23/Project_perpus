@@ -17,7 +17,7 @@
 			";
 		}
 		elseif(isset($_GET['act'])AND $_GET['act']=='proses_tambah'){
-			$tambah = mysqli_query($connect, "INSERT INTO kategori(kategori) VALUES ('$_POST[kategori]')");
+			$tambah = mysqli_query($connect, "INSERT INTO kategori(nama_kategori) VALUES ('$_POST[kategori]')");
 			if($tambah){
 				echo "	Data berhasil ditambahkan!";
 			}else{
@@ -30,12 +30,12 @@
 				<h3>Edit Data</h3>
 				<form name='edit' action='?act=proses_edit' method='post'>
 					<input type='hidden' name='id' value='$isi[id_kategori]'>
-					<p><input type='text' name='wilayah' value='$isi[kategori]' placeholder='kategori' required></p>
+					<p><input type='text' name='kategori' value='$isi[nama_kategori]' placeholder='kategori' required></p>
 					<p><input type='submit' name='proses' value ='simpan' class='btn btn-danger'></p>
 				</form>
 				<hr>";
 		}elseif (isset($_GET['act'])AND $_GET['act']=='proses_edit') {
-			$edit = mysqli_query($connect, "UPDATE kategori set kategori = '$_POST[kategori]' where id_kategori = '$_POST[id]'");
+			$edit = mysqli_query($connect, "UPDATE kategori set nama_kategori = '$_POST[kategori]' where id_kategori = '$_POST[id]'");
 			if($edit){
 				echo "Data berhasil di Edit!";
 			}else{
