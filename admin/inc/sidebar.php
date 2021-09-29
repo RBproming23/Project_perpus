@@ -13,7 +13,8 @@
 		<li><a href="buku.php">Buku</a></li>
 		<li><a href="kategori.php">Kategori Buku</a></li>
 		<li><a href="user.php">User</a></li>
+		<li><a href="peminjaman.php">Peminjaman</a></li>
 		<li><a href="logout.php">Logout</a></li>
 	</ul>
-	<span>Author: @magang_codelaris</span>	
+	<span class="text-light">Author: @magang_codelaris</span>	
 </section>
