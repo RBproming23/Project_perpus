@@ -43,12 +43,12 @@
 						<nav id="signin" class="dropdown">
 							<ul>
 								<?php
-									if(isset($_SESSION['email']) AND isset($_SESSION['password'])){
+									if(isset($_SESSION['username']) AND isset($_SESSION['password'])){
 								?>
 								<li>
-									<a href='account.php'><img src="img/user-icon.gif" alt="Sign in" /><?php echo "Profil Saya"; ?><img src="img/down-arrow.gif" alt="Produk" /></a>
+									<a href='sign_in.php'><img src='img/user-icon.gif' alt='Sign In'>Akun<img src='img/down-arrow.gif' alt='Sign In'></a>
 							<ul>
-								<li><a href="sign_in.php">Profil Saya</a></li>
+								
 								<li><a href="sign_out.php">Sign Out</a></li>
 							</ul>
 						</li>
@@ -75,4 +75,3 @@
 		</div>
 	</section>
 			</header>
-	
