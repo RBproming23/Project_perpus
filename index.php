@@ -5,10 +5,10 @@
 	<div class="container">
 		<div id="promo-details">
 			<h1>Pengeluaran buku terbaru</h1>
-			<p>Pinjam buku kami<br>degan tanpa syarat. </p>
+			<p>Pinjam buku kami<br>dengan tanpa syarat. </p>
 	<a href="#" class="default-btn">PINJAM SEKARANG</a>
 </div>
-<img src="img/motivasi 3.jpg" alt="Promotional Ad" width="200px">
+<img src="img/motivasi 5.jpg" alt="Promotional Ad" width="200px">
 </div>
 </section>
 <section id="main-content">
