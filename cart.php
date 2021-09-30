@@ -1,6 +1,6 @@
 <?php $page="History Peminjaman";?>
 <?php include("inc/header.php");
-if(!isset($_SESSION['email'])AND !isset($_SESSION['password'])){
+if(!isset($_SESSION['id_user'])){
 		header('location:sign_in.php');
 	}
 ?>
