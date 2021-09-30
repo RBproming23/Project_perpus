@@ -2,7 +2,7 @@
   include('inc/header.php');
   include('inc/sidebar.php');?>
 
-  <section class="main"">
+  <section class="main">
     <h1>Buku</h1>
     <hr>
     <?php 
